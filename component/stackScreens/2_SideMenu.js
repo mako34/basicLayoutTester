@@ -38,7 +38,9 @@ class ScreenTwo extends Component {
             }}
           >
             <TouchableHighlight
-              onPress={() => navigate("ScreenGoTo", { screen: "ScreenGoTo mm" })}
+              onPress={() =>
+                navigate("ScreenGoTo", { screen: "ScreenGoTo mm" })
+              }
             >
               <Text style={styles.selectorTextStyle}> Go To...</Text>
             </TouchableHighlight>
@@ -52,23 +54,23 @@ class ScreenTwo extends Component {
               justifyContent: "center"
             }}
           >
-            <TouchableHighlight 
-              onPress={() => navigate("ScreenNewMatter", { screen: "ScreenNewMatter mm" })}
-              >
+            <TouchableHighlight
+              onPress={() =>
+                navigate("ScreenNewMatter", { screen: "ScreenNewMatter mm" })
+              }
+            >
               <Text style={styles.selectorTextStyle}>New...</Text>
             </TouchableHighlight>
           </View>
         </View>
 
         <Image
-              style={styles.box2}
-              resizeMode={"contain"}
-              source={require("../images/placeHolderMenu.png")}
-            />
+          style={styles.box2}
+          resizeMode={"contain"}
+          source={require("../images/placeHolderMenu.png")}
+        />
 
         {/* <View style={[styles.box2]} /> */}
-
-       
       </View>
     );
   }
@@ -79,8 +81,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "rgb(37, 40, 41)",
-    alignItems: "center",
-
+    alignItems: "center"
   },
 
   //
@@ -94,10 +95,7 @@ const styles = StyleSheet.create({
     height: 33
   },
   box2: {
-      height : 400,
-    
-
-
+    height: 400
   },
   box3: {
     backgroundColor: "#e3aa1a"
@@ -123,7 +121,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    alignSelf: "center",
+    alignSelf: "center"
   },
   selectorTextStyle: {
     color: "white"
