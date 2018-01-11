@@ -10,6 +10,7 @@ import {
 
 //
 var { height } = Dimensions.get("window");
+var { screenWidth } = Dimensions.get("window").width;
 
 var box_count = 3;
 var box_height = height / box_count;
@@ -59,7 +60,13 @@ class ScreenTwo extends Component {
           </View>
         </View>
 
-        <View style={[styles.box2]} />
+        <Image
+              style={styles.box2}
+              resizeMode={"contain"}
+              source={require("../images/placeHolderMenu.png")}
+            />
+
+        {/* <View style={[styles.box2]} /> */}
 
        
       </View>
@@ -71,7 +78,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "rgb(37, 40, 41)"
+    backgroundColor: "rgb(37, 40, 41)",
+    alignItems: "center",
+
   },
 
   //
@@ -85,8 +94,10 @@ const styles = StyleSheet.create({
     height: 33
   },
   box2: {
-    height: height - 33,
-    backgroundColor: "#8BC34A"
+      height : 400,
+    
+
+
   },
   box3: {
     backgroundColor: "#e3aa1a"
