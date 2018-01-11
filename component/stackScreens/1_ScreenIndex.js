@@ -13,7 +13,10 @@ import {
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
-import styles from "./styles";
+var { height } = Dimensions.get("window");
+
+
+// import styles from "./styles";
 
 class ScreenUno extends Component {
   static navigationOptions = {
@@ -38,126 +41,156 @@ class ScreenUno extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        {/* navBar */}
-        <NavBar style={styles}>
-          {/* LeftButton */}
-          <NavButton
-            onPress={() => navigate("ScreenMenu", { screen: "Side Menu" })}
 
-          >
-            <Image
-              style={styles.image}
-              resizeMode={"contain"}
-              source={require("../images/hambuIcon.png")}
-            />
+        <View style={[styles.boxNavBar]}>
+          <NavBar style={styles}>
+            {/* LeftButton */}
+            <NavButton
+              onPress={() => navigate("ScreenMenu", { screen: "Side Menu" })}
+            >
+              <Image
+                style={styles.image}
+                resizeMode={"contain"}
+                source={require("../images/hambuIcon.png")}
+              />
 
-            {/* RightButton */}
-          </NavButton>
-          <NavTitle>{"Secure messaging"}</NavTitle>
-          <NavButton
-            // onPress={() => {
-            //   alert("you clicked me 223");
-            //   console.log("TouchableHighlight pressed...");
-              
-            // }}
+              {/* RightButton */}
+            </NavButton>
+            <NavTitle>{"Secure messaging"}</NavTitle>
+            <NavButton
+              // onPress={() => {
+              //   alert("you clicked me 223");
+              //   console.log("TouchableHighlight pressed...");
 
-            onPress={() => navigate("ScreenOptions", { screen: "la propia" })}
+              // }}
 
-          >
-            <Image
-              style={styles.image}
-              resizeMode={"contain"}
-              source={require("../images/moreDots.png")}
-            />
-          </NavButton>
-        </NavBar>
-
-        {/* button selector */}
-
-        <View style={{ flex: 1, flexDirection: "row" }}>
-          <View
-            style={{
-              width: Dimensions.get("window").width / 2,
-              height: 50,
-              backgroundColor: "powderblue",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <TouchableHighlight onPress={() => this._selectorPressed}>
-              <Text>MESSAGES</Text>
-            </TouchableHighlight>
-          </View>
-          <View
-            style={{
-              width: Dimensions.get("window").width / 2,
-              height: 50,
-              backgroundColor: "skyblue",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <TouchableHighlight onPress={() => this._selectorPressed}>
-              <Text>FILES</Text>
-            </TouchableHighlight>
-          </View>
+              onPress={() => navigate("ScreenOptions", { screen: "la propia" })}
+            >
+              <Image
+                style={styles.image}
+                resizeMode={"contain"}
+                source={require("../images/moreDots.png")}
+              />
+            </NavButton>
+          </NavBar>
         </View>
 
-        {/* table for messages or files*/}
 
-        {/* footer, search bar */}
+        <View style={[styles.boxSegmentedK]}>
 
-        <View
-          style={{
-            position: "absolute",
-            flexDirection: "row",
-            width: Dimensions.get("window").width,
-            height: 60,
-            backgroundColor: "orange",
-            alignItems: "center",
-            top: Dimensions.get("window").height - 200
-          }}
-        >
-          <TextInput
-            style={{
-              height: 40,
-              width: 220,
-              backgroundColor: "#E9E9E9",
+            {/* button selector */}
 
-              borderColor: "gray",
-              borderWidth: 1
-            }}
-            placeholder="Enter a secure message"
-          />
+            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View
+              style={{
+                width: Dimensions.get("window").width / 2,
+                height: 50,
+                backgroundColor: "powderblue",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <TouchableHighlight onPress={() => this._selectorPressed}>
+                <Text>MESSAGES</Text>
+              </TouchableHighlight>
+            </View>
+            <View
+              style={{
+                width: Dimensions.get("window").width / 2,
+                height: 50,
+                backgroundColor: "skyblue",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <TouchableHighlight onPress={() => this._selectorPressed}>
+                <Text>FILES</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
 
-          <TouchableOpacity
-            onPress={() => {
-              alert("you clicked me 1");
-            }}
-          >
-            <Image
-              style={[styles.searchIcon]}
-              source={require("../images/cameraIcon.png")}
-              resizeMode={"contain"}
+        </View>
+
+
+        <Image
+        style={styles.boxTable}
+        resizeMode={"contain"}
+        source={require("../images/placeHolderMessages.png")}
+      />
+
+
+        <View style={[styles.boxFooter]}>
+
+        <TextInput
+              style={{
+                height: 40,
+                width: 220,
+                backgroundColor: "#E9E9E9",
+                paddingLeft: 22,
+                borderColor: "gray",
+                borderWidth: 1
+              }}
+              placeholder="Enter a secure message"
             />
-          </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => {
-              alert("you clicked me 2");
-              console.log("TouchableHighlight pressed...");
-            }}
-          >
-            <Image
-              style={[(width = 40)]}
-              source={require("../images/paperClip.png")}
-              resizeMode={"contain"}
-            />
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                alert("you clicked me 1");
+              }}
+            >
+              <Image
+                style={styles.image}
+                source={require("../images/cameraIcon.png")}
+                resizeMode={"contain"}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                alert("you clicked me 2");
+                console.log("TouchableHighlight pressed...");
+              }}
+            >
+              <Image
+                style={styles.image}
+                source={require("../images/paperClip.png")}
+                resizeMode={"contain"}
+              />
+            </TouchableOpacity>
+
         </View>
       </View>
+ 
     );
   }
 }
 
 export default ScreenUno;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column"
+  },
+  boxNavBar: {
+    height: 60,
+    backgroundColor: "#2196F3"
+  },
+  boxSegmentedK: {
+    height: 50,
+    backgroundColor: "#8BC34A"
+  },
+  boxTable: {
+    height: 500,
+    backgroundColor: "#e3aa1a"
+  },
+  boxFooter: {
+    height: 60,
+    backgroundColor: "#ff0000",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  image: {
+    width: 30,
+  },
+});

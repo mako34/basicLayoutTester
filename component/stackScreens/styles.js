@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(255, 255, 255)'
+    backgroundColor: 'rgb(255, 255, 255)',
+    flexDirection: "column",
   },
 
     ///refactor start
