@@ -28,6 +28,8 @@ class ScreenUno extends Component {
 
   handleOnPress = () => this.setState({ toggleCharacter: false });
 
+  _handler = () => alert("you clicked me");
+
   _selectorPressed() {
     console.log("TouchableHighlight pressed...");
   }
@@ -36,16 +38,32 @@ class ScreenUno extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        {/* navBar */}
         <NavBar style={styles}>
-          <NavButton onPress={() => navigate("DrawerOpen")}>
+          {/* LeftButton */}
+          <NavButton
+            onPress={() => navigate("ScreenMenu", { screen: "Side Menu" })}
+
+          >
             <Image
               style={styles.image}
               resizeMode={"contain"}
               source={require("../images/hambuIcon.png")}
             />
+
+            {/* RightButton */}
           </NavButton>
           <NavTitle>{"Secure messaging"}</NavTitle>
-          <NavButton onPress={() => navigate("DrawerOpen")}>
+          <NavButton
+            // onPress={() => {
+            //   alert("you clicked me 223");
+            //   console.log("TouchableHighlight pressed...");
+              
+            // }}
+
+            onPress={() => navigate("ScreenOptions", { screen: "la propia" })}
+
+          >
             <Image
               style={styles.image}
               resizeMode={"contain"}
@@ -97,7 +115,7 @@ class ScreenUno extends Component {
             height: 60,
             backgroundColor: "orange",
             alignItems: "center",
-            top: Dimensions.get("window").height - 60
+            top: Dimensions.get("window").height - 200
           }}
         >
           <TextInput
@@ -114,7 +132,7 @@ class ScreenUno extends Component {
 
           <TouchableOpacity
             onPress={() => {
-              alert("you clicked me");
+              alert("you clicked me 1");
             }}
           >
             <Image
@@ -126,11 +144,12 @@ class ScreenUno extends Component {
 
           <TouchableOpacity
             onPress={() => {
-              alert("you clicked me");
+              alert("you clicked me 2");
+              console.log("TouchableHighlight pressed...");
             }}
           >
             <Image
-              style={[width=40]}
+              style={[(width = 40)]}
               source={require("../images/paperClip.png")}
               resizeMode={"contain"}
             />

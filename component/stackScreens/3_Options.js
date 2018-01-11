@@ -1,0 +1,70 @@
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableHighlight
+} from 'react-native';
+
+class ScreenTwo extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      //titulo nav bar, mira como usan los params
+      title: `ss9  tkt${navigation.state.params.screen}`,
+    }
+  };
+  render() {
+    const { state, navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.titleText}>{state.params.screen}</Text>
+
+ 
+        <TouchableHighlight
+          onPress={() => navigate("ScreenParticipants", {screen: "ScreenParticipants Two"})}
+          style={[styles.button, {backgroundColor: '#C56EE0'}]}     >
+          <Text
+            >Participants </Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          onPress={() => navigate("ScreenSecurity", {screen: "ScreenSecurity Two"})}
+          style={[styles.button, {backgroundColor: '#FF0000'}]}     >
+          <Text
+            >Security </Text>
+        </TouchableHighlight>
+
+      </View>
+    );
+  }
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  titleText: {
+    fontSize: 22
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20
+  },
+  button: {
+    borderRadius: 20,
+    height: 50,
+    flex: 2,
+    margin: 10,
+    justifyContent: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    alignSelf: 'center',
+    fontSize: 18
+  }
+});
+export default ScreenTwo;
