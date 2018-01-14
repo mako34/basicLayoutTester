@@ -45,7 +45,7 @@ class ScreenUno extends Component {
             />
           </NavButton>
           <NavTitle>{"Secure messaging"}</NavTitle>
-          <NavButton onPress={() => navigate("DrawerOpen")}>
+          <NavButton onPress={() => alert("Log out son")}>
             <Image
               style={styles.image}
               resizeMode={"contain"}

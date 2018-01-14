@@ -1,0 +1,8 @@
+
+
+
+. automate select boundle
+  . testing, on local
+  . testflight, on phone
+
+

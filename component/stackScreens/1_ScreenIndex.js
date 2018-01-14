@@ -20,7 +20,6 @@ var { height } = Dimensions.get("window");
 
 class ScreenUno extends Component {
   static navigationOptions = {
-    drawerLabel: "Screen uno MK ss9",
     drawerIcon: ({ tintColor }) => (
       <Image
         source={require("../images/notification-icon.png")}
@@ -46,7 +45,7 @@ class ScreenUno extends Component {
           <NavBar style={styles}>
             {/* LeftButton */}
             <NavButton
-              onPress={() => navigate("ScreenMenu", { screen: "Side Menu" })}
+              onPress={() => navigate("DrawerOpen")}
             >
               <Image
                 style={styles.image}

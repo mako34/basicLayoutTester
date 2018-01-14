@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 
 // import App from './component/tabBarScreens/App';
-import App from './component/stackScreens/App';
-// import App from './component/hambuScreens/App';
+// import App from './component/stackScreens/App';
+import App from './component/hambuScreens/App';
 
 
 AppRegistry.registerComponent('reactNav', () => App);
