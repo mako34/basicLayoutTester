@@ -14,6 +14,12 @@ import {
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
 var { height } = Dimensions.get("window");
+var topSeparatorHeight = 35;
+var boxNavBarHeight = 60;
+var segmentedSelectorHeight = 50;
+var boxFooterHeight = 60;
+var screenHeight = height - (topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight + boxFooterHeight);
+
 
 // import styles from "./styles";
 
@@ -44,7 +50,7 @@ class ScreenUno extends Component {
         <View
           style={{
             width: Dimensions.get("window").width,
-            height: 35,
+            height: topSeparatorHeight,
             backgroundColor: "skyblue",
             alignItems: "center",
             justifyContent: "center"
@@ -89,7 +95,7 @@ class ScreenUno extends Component {
             <View
               style={{
                 width: Dimensions.get("window").width / 2,
-                height: 50,
+                height: segmentedSelectorHeight,
                 backgroundColor: "powderblue",
                 alignItems: "center",
                 justifyContent: "center"
@@ -102,7 +108,7 @@ class ScreenUno extends Component {
             <View
               style={{
                 width: Dimensions.get("window").width / 2,
-                height: 50,
+                height: segmentedSelectorHeight,
                 backgroundColor: "skyblue",
                 alignItems: "center",
                 justifyContent: "center"
@@ -172,19 +178,19 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   boxNavBar: {
-    height: 60,
+    height: boxNavBarHeight,
     backgroundColor: "#2196F3"
   },
   boxSegmentedK: {
-    height: 50,
+    height: segmentedSelectorHeight,
     backgroundColor: "#8BC34A"
   },
   boxTable: {
-    height: 500,
+    height: screenHeight,
     backgroundColor: "#e3aa1a"
   },
   boxFooter: {
-    height: 60,
+    height: boxFooterHeight,
     backgroundColor: "#ff0000",
     flexDirection: "row",
     alignItems: "center"

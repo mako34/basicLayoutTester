@@ -13,6 +13,9 @@ import {
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
+var topSeparatorHeight = 35;
+
+
 class ScreenTwo extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -28,7 +31,7 @@ class ScreenTwo extends Component {
         <View
           style={{
             width: Dimensions.get("window").width,
-            height: 35,
+            height: topSeparatorHeight,
             backgroundColor: "skyblue",
             alignItems: "center",
             justifyContent: "center"
@@ -40,7 +43,7 @@ class ScreenTwo extends Component {
             {/* LeftButton */}
             <NavButton onPress={() => this.props.navigation.goBack(null)}>
               <Image
-                style={styles.image}
+                style={styles.navImage}
                 resizeMode={"contain"}
                 source={require("../images/backIcon.png")}
               />
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 18
   },
-  image: {
+  navImage: {
     width: 30
   }
 });

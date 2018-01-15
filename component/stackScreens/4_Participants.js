@@ -1,58 +1,95 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
-  View,
   Text,
-  TouchableHighlight
-} from 'react-native';
+  View,
+  Image,
+  Dimensions,
+  TouchableHighlight,
+  Button
+} from "react-native";
 
-class ScreenTwo extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      //titulo nav bar, mira como usan los params
-      title: `Welcome  tkt${navigation.state.params.screen}`,
-    }
-  };
+import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
+
+
+var { height } = Dimensions.get("window");
+var topSeparatorHeight = 35;
+var boxUserHeight = 50;
+var boxFooterHeight = 80;
+var contentHeight = height - (topSeparatorHeight + boxUserHeight+ boxFooterHeight);
+
+export default class VerticalStackLayout extends Component {
   render() {
     const { state, navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
-        <Text style={styles.titleText}>{state.params.screen}</Text>
-        <Text> cambia el paso</Text>
 
- 
+
+      {/* separator */}
+      <View
+          style={{
+            width: Dimensions.get("window").width,
+            height: topSeparatorHeight,
+            backgroundColor: "skyblue",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        />
+
+<View style={[styles.boxNavBar]}>
+          <NavBar style={styles}>
+            {/* LeftButton */}
+            <NavButton onPress={() => this.props.navigation.goBack(null)}>
+              <Image
+                style={styles.navImage}
+                resizeMode={"contain"}
+                source={require("../images/backIcon.png")}
+              />
+            </NavButton>
+            <NavTitle>{"Manage participants"}</NavTitle>
+            
+          </NavBar>
+        </View>
+
+
+
+
 
       </View>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "column"
   },
-  titleText: {
-    fontSize: 22
+  boxUser: {
+    height: boxUserHeight,
+    backgroundColor: "rgb(243, 243, 243)",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20
+  boxOptions: {
+    height: contentHeight,
+    backgroundColor: "#ff0000"
   },
-  button: {
-    borderRadius: 20,
-    height: 50,
-    flex: 2,
-    margin: 10,
-    justifyContent: 'center'
+  boxFooter: {
+    height: boxFooterHeight,
+    backgroundColor: "#00ff00",
+    
   },
-  buttonText: {
-    color: 'white',
-    alignSelf: 'center',
-    fontSize: 18
+  userIcon: {
+    height: 30
+  },
+  bottomButton: {
+    textAlign: 'left',
+  },
+    navImage: {
+    width: 30
   }
 });
-export default ScreenTwo;
+ 

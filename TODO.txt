@@ -1,5 +1,9 @@
 
 
+. handle of heights of screens
+
+
 . inheritance of stack pages,
     . separator
-    
+
+. modular UI
