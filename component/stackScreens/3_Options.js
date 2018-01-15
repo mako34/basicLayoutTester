@@ -18,6 +18,19 @@ export default class VerticalStackLayout extends Component {
 
     return (
       <View style={styles.container}>
+
+
+      {/* separator */}
+      <View
+          style={{
+            width: Dimensions.get("window").width,
+            height: 35,
+            backgroundColor: "skyblue",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        />
+
         <View style={[styles.boxUser]}>
           <Image
             style={styles.userIcon}

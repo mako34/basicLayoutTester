@@ -15,7 +15,6 @@ import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
 var { height } = Dimensions.get("window");
 
-
 // import styles from "./styles";
 
 class ScreenUno extends Component {
@@ -41,12 +40,21 @@ class ScreenUno extends Component {
     return (
       <View style={styles.container}>
 
+      {/* separator */}
+        <View
+          style={{
+            width: Dimensions.get("window").width,
+            height: 35,
+            backgroundColor: "skyblue",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        />
+
         <View style={[styles.boxNavBar]}>
           <NavBar style={styles}>
             {/* LeftButton */}
-            <NavButton
-              onPress={() => navigate("DrawerOpen")}
-            >
+            <NavButton onPress={() => navigate("DrawerOpen")}>
               <Image
                 style={styles.image}
                 resizeMode={"contain"}
@@ -74,12 +82,10 @@ class ScreenUno extends Component {
           </NavBar>
         </View>
 
-
         <View style={[styles.boxSegmentedK]}>
+          {/* button selector */}
 
-            {/* button selector */}
-
-            <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={{ flex: 1, flexDirection: "row" }}>
             <View
               style={{
                 width: Dimensions.get("window").width / 2,
@@ -107,59 +113,53 @@ class ScreenUno extends Component {
               </TouchableHighlight>
             </View>
           </View>
-
         </View>
-
 
         <Image
-        style={styles.boxTable}
-        resizeMode={"contain"}
-        source={require("../images/placeHolderMessages.png")}
-      />
-
+          style={styles.boxTable}
+          resizeMode={"contain"}
+          source={require("../images/placeHolderMessages.png")}
+        />
 
         <View style={[styles.boxFooter]}>
+          <TextInput
+            style={{
+              height: 40,
+              width: 220,
+              backgroundColor: "#E9E9E9",
+              paddingLeft: 22,
+              borderColor: "gray",
+              borderWidth: 1
+            }}
+            placeholder="Enter a secure message"
+          />
 
-        <TextInput
-              style={{
-                height: 40,
-                width: 220,
-                backgroundColor: "#E9E9E9",
-                paddingLeft: 22,
-                borderColor: "gray",
-                borderWidth: 1
-              }}
-              placeholder="Enter a secure message"
+          <TouchableOpacity
+            onPress={() => {
+              alert("you clicked me 1");
+            }}
+          >
+            <Image
+              style={styles.image}
+              source={require("../images/cameraIcon.png")}
+              resizeMode={"contain"}
             />
+          </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() => {
-                alert("you clicked me 1");
-              }}
-            >
-              <Image
-                style={styles.image}
-                source={require("../images/cameraIcon.png")}
-                resizeMode={"contain"}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                alert("you clicked me 2");
-                console.log("TouchableHighlight pressed...");
-              }}
-            >
-              <Image
-                style={styles.image}
-                source={require("../images/paperClip.png")}
-                resizeMode={"contain"}
-              />
-            </TouchableOpacity>
-
+          <TouchableOpacity
+            onPress={() => {
+              alert("you clicked me 2");
+              console.log("TouchableHighlight pressed...");
+            }}
+          >
+            <Image
+              style={styles.image}
+              source={require("../images/paperClip.png")}
+              resizeMode={"contain"}
+            />
+          </TouchableOpacity>
         </View>
       </View>
- 
     );
   }
 }
@@ -190,6 +190,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   image: {
-    width: 30,
-  },
+    width: 30
+  }
 });
