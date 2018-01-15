@@ -9,7 +9,7 @@ import {
   Button
 } from "react-native";
 
-
+import CheckBox from 'react-native-checkbox-heaven';
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
@@ -21,6 +21,14 @@ var contentHeight =
   height - (topSeparatorHeight + boxUserHeight + boxFooterHeight);
 
 export default class VerticalStackLayout extends Component {
+
+  state = {
+    checked: false
+  }
+  handleOnChange(val) {
+    this.setState({ checked: val })
+  }
+
   render() {
     const { state, navigate } = this.props.navigation;
 
@@ -51,7 +59,38 @@ export default class VerticalStackLayout extends Component {
           </NavBar>
         </View>
  
- 
+        <CheckBox
+          label='Bart Vadala'
+          labelStyle={styles.labelStyle}
+          iconSize={28}
+          iconName='matMix'
+          checked={this.state.checked}
+          checkedColor='#008080'
+          uncheckedColor='#8b0000'
+          onChange={this.handleOnChange.bind(this)}
+        />
+
+        <CheckBox
+          label='Hunter Steele'
+          labelStyle={styles.labelStyle}
+          iconSize={28}
+          iconName='matMix'
+          checked={this.state.checked}
+          checkedColor='#008080'
+          uncheckedColor='#8b0000'
+          onChange={this.handleOnChange.bind(this)}
+        />
+
+        <CheckBox
+          label='Lisa Halliday'
+          labelStyle={styles.labelStyle}
+          iconSize={28}
+          iconName='matMix'
+          checked={this.state.checked}
+          checkedColor='#008080'
+          uncheckedColor='#8b0000'
+          onChange={this.handleOnChange.bind(this)}
+        />
 
       </View>
  
@@ -87,5 +126,11 @@ const styles = StyleSheet.create({
   },
   navImage: {
     width: 30
+  },
+  labelStyle: {
+    marginLeft: 4,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#2f4f4f'
   }
 });
