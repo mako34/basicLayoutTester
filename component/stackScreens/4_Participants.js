@@ -9,14 +9,16 @@ import {
   Button
 } from "react-native";
 
-import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
+
+import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
 
 var { height } = Dimensions.get("window");
 var topSeparatorHeight = 35;
 var boxUserHeight = 50;
 var boxFooterHeight = 80;
-var contentHeight = height - (topSeparatorHeight + boxUserHeight+ boxFooterHeight);
+var contentHeight =
+  height - (topSeparatorHeight + boxUserHeight + boxFooterHeight);
 
 export default class VerticalStackLayout extends Component {
   render() {
@@ -24,10 +26,8 @@ export default class VerticalStackLayout extends Component {
 
     return (
       <View style={styles.container}>
-
-
-      {/* separator */}
-      <View
+        {/* separator */}
+        <View
           style={{
             width: Dimensions.get("window").width,
             height: topSeparatorHeight,
@@ -37,7 +37,7 @@ export default class VerticalStackLayout extends Component {
           }}
         />
 
-<View style={[styles.boxNavBar]}>
+        <View style={[styles.boxNavBar]}>
           <NavBar style={styles}>
             {/* LeftButton */}
             <NavButton onPress={() => this.props.navigation.goBack(null)}>
@@ -48,16 +48,14 @@ export default class VerticalStackLayout extends Component {
               />
             </NavButton>
             <NavTitle>{"Manage participants"}</NavTitle>
-            
           </NavBar>
         </View>
-
-
-
-
+ 
+ 
 
       </View>
-    );
+ 
+  );
   }
 }
 
@@ -79,17 +77,15 @@ const styles = StyleSheet.create({
   },
   boxFooter: {
     height: boxFooterHeight,
-    backgroundColor: "#00ff00",
-    
+    backgroundColor: "#00ff00"
   },
   userIcon: {
     height: 30
   },
   bottomButton: {
-    textAlign: 'left',
+    textAlign: "left"
   },
-    navImage: {
+  navImage: {
     width: 30
   }
 });
- 
