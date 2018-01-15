@@ -1,3 +1,10 @@
+// Questions
+// . ask designer how table works, 2 sections? long one?
+
+// Notes
+// . CheckBox
+// https://github.com/ismayilmalik/react-native-checkbox-heaven
+
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -59,11 +66,40 @@ export default class VerticalStackLayout extends Component {
           </NavBar>
         </View>
  
+
+{/* staff box */}
+        <View style={[styles.staffBox]}>
+
+          <View style={[styles.leftBox]}>
+            <Text>Staff</Text>
+          </View>
+
+          <View style={[styles.rightBox]}>
+
+          </View>
+
+        </View>
+
+        <View style={[styles.separator]}/>
+ 
+{/* parties box */}
+        <View style={[styles.partiesBox]}>
+          <View style={[styles.leftBox]}>
+            <Text>Parties</Text>
+
+          </View>
+
+          <View style={[styles.rightBox]}>
+
+          </View>          
+
+        </View>
+
         <CheckBox
           label='Bart Vadala'
           labelStyle={styles.labelStyle}
           iconSize={28}
-          iconName='matMix'
+          iconName='matCircleMix'
           checked={this.state.checked}
           checkedColor='#008080'
           uncheckedColor='#8b0000'
@@ -74,7 +110,7 @@ export default class VerticalStackLayout extends Component {
           label='Hunter Steele'
           labelStyle={styles.labelStyle}
           iconSize={28}
-          iconName='matMix'
+          iconName='matCircleMix'
           checked={this.state.checked}
           checkedColor='#008080'
           uncheckedColor='#8b0000'
@@ -85,12 +121,19 @@ export default class VerticalStackLayout extends Component {
           label='Lisa Halliday'
           labelStyle={styles.labelStyle}
           iconSize={28}
-          iconName='matMix'
+          iconName='matCircleMix'
           checked={this.state.checked}
           checkedColor='#008080'
           uncheckedColor='#8b0000'
           onChange={this.handleOnChange.bind(this)}
         />
+
+
+        <Button
+            onPress={() => alert("create new contact homes")}
+            title="add new contact"
+            color="blue"
+          />
 
       </View>
  
@@ -132,5 +175,26 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#2f4f4f'
+  },
+  staffBox: {
+    height: 200,
+    backgroundColor: "#00ff00",
+  },
+  partiesBox: {
+    height: 200,
+    backgroundColor: "#0000ff",
+  },
+  leftBox: {
+    width: Dimensions.get("window").width * (1/3),
+    height: 200,
+    backgroundColor: "#ff00ff",
+  },
+  rightBox: {
+    width: Dimensions.get("window").width * (2/3),
+    backgroundColor: "#0000ff",
+  },
+  separator:{
+    height: 2,
+    backgroundColor: 'grey',
   }
 });
