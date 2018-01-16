@@ -20,3 +20,16 @@ https://github.com/ismayilmalik/react-native-checkbox-heaven
 used on 3_Options
 https://www.npmjs.com/package/react-native-switch
 
+
+. abstract separator
+
+5_security
+. Navigation center title
+. style cells, checkbox
+
+
+Questions
+
+4_Participants
+. what to do when ... add new contact
+

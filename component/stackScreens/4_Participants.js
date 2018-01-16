@@ -101,8 +101,8 @@ export default class VerticalStackLayout extends Component {
           iconSize={28}
           iconName='matCircleMix'
           checked={this.state.checked}
-          checkedColor='#008080'
-          uncheckedColor='#8b0000'
+          checkedColor='rgb(0,118,255)'
+          uncheckedColor='gray'
           onChange={this.handleOnChange.bind(this)}
         />
 
@@ -112,8 +112,8 @@ export default class VerticalStackLayout extends Component {
           iconSize={28}
           iconName='matCircleMix'
           checked={this.state.checked}
-          checkedColor='#008080'
-          uncheckedColor='#8b0000'
+          checkedColor='rgb(0,118,255)'
+          uncheckedColor='gray'
           onChange={this.handleOnChange.bind(this)}
         />
 
@@ -123,8 +123,8 @@ export default class VerticalStackLayout extends Component {
           iconSize={28}
           iconName='matCircleMix'
           checked={this.state.checked}
-          checkedColor='#008080'
-          uncheckedColor='#8b0000'
+          checkedColor='rgb(0,118,255)'
+          uncheckedColor='gray'
           onChange={this.handleOnChange.bind(this)}
         />
 

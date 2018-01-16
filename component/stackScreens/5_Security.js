@@ -8,13 +8,14 @@ import {
   Text,
   TouchableHighlight,
   Dimensions,
-  Image
+  Image,
+  Button
 } from "react-native";
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
+import CheckBox from "react-native-checkbox-heaven";
 
 var topSeparatorHeight = 35;
-
 
 class ScreenTwo extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -23,6 +24,14 @@ class ScreenTwo extends Component {
       title: `Secure  tkt${navigation.state.params.screen}`
     };
   };
+
+  state = {
+    checked: false
+  };
+  handleOnChange(val) {
+    this.setState({ checked: val });
+  }
+
   render() {
     const { state, navigate } = this.props.navigation;
     return (
@@ -49,9 +58,32 @@ class ScreenTwo extends Component {
               />
             </NavButton>
             <NavTitle>{"Security"}</NavTitle>
-            
           </NavBar>
         </View>
+
+        <CheckBox
+          label="Nothing"
+          labelPosition="left"
+          labelStyle={styles.labelStyle}
+          iconSize={28}
+          iconName="matCircleMix"
+          checked={this.state.checked}
+          checkedColor="rgb(0,118,255)"
+          uncheckedColor="gray"
+          onChange={this.handleOnChange.bind(this)}
+        />
+
+        <Button
+          onPress={() => alert("handle PIN")}
+          title="PIN"
+          color="black"
+        />
+
+        <Button
+          onPress={() => alert("handle Fingerprints")}
+          title="Fingerprints"
+          color="black"
+        />
       </View>
     );
   }
