@@ -78,7 +78,7 @@ export default class VerticalStackLayout extends Component {
               activeText={"On"}
               inActiveText={"Off"}
               circleSize={30}
-              barHeight={20}
+              barHeight={30}
               circleBorderWidth={3}
               backgroundActive={"green"}
               backgroundInactive={"gray"}

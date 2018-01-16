@@ -19,6 +19,7 @@
     . logic show view
 
 3_Options
+    . on tap close button, fix, no black!
     . switch
     https://www.npmjs.com/package/react-native-switch
 
@@ -37,6 +38,7 @@
 
 . all, 
     . handling of width, heights ?
+    . how to handle, MVC, MVVM?
 
 4_Participants
 . what to do when ... add new contact

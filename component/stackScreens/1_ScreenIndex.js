@@ -8,7 +8,8 @@ import {
   View,
   Image,
   Dimensions,
-  TextInput
+  TextInput,
+  Button
 } from "react-native";
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
@@ -41,9 +42,26 @@ class ScreenUno extends Component {
 
   _handler = () => alert("you clicked me");
 
-  _selectorPressed() {
+  _selectorPressed = function() {
     console.log("TouchableHighlight pressed...");
+    alert("y y y1");
+  };
+
+  constructor() {
+    super();
+
+    this.state = {
+      status: true
+    };
   }
+
+  ShowHideTextComponentView = () => {
+    if (this.state.status == true) {
+      this.setState({ status: false });
+    } else {
+      this.setState({ status: true });
+    }
+  };
 
   render() {
     const { navigate } = this.props.navigation;
@@ -107,7 +125,7 @@ class ScreenUno extends Component {
             >
               <TouchableHighlight
                 style={[styles.selectorButton]}
-                onPress={() => this._selectorPressed}
+                onPress={this.ShowHideTextComponentView}
                 underlayColor="gray"
               >
                 <Text>MESSAGES</Text>
@@ -123,7 +141,7 @@ class ScreenUno extends Component {
             >
               <TouchableHighlight
                 style={[styles.selectorButton]}
-                onPress={() => this._selectorPressed}
+                onPress={this.ShowHideTextComponentView}
                 underlayColor="gray"
               >
                 <Text>FILES</Text>
@@ -132,11 +150,20 @@ class ScreenUno extends Component {
           </View>
         </View>
 
-        <Image
-          style={styles.boxTable}
-          resizeMode={"contain"}
-          source={require("../images/placeHolderMessages.png")}
-        />
+        {this.state.status ? (
+          <View style={styles.boxTable}>
+<Text>FILES</Text>
+          </View>
+        ) : (
+          <View style={styles.boxTable2}>
+<Text>Mess</Text>
+          </View>
+        )}
+
+        {/* <Button
+          title="Hide Text Component"
+          onPress={this.ShowHideTextComponentView}
+        /> */}
 
         <View style={[styles.boxFooter]}>
           <TextInput
@@ -200,17 +227,42 @@ const styles = StyleSheet.create({
   },
   boxSegmentedK: {
     height: segmentedSelectorHeight,
-    backgroundColor: "rgb(243,243,243)",
+    backgroundColor: "rgb(243,243,243)"
   },
   boxTable: {
+    // height: screenHeight,
+    // backgroundColor: "#e3aa1a",
+
+    position: "absolute",
+    width: Dimensions.get("window").width,
     height: screenHeight,
-    backgroundColor: "#e3aa1a"
+    top: topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight,
+    left: 0,
+    backgroundColor: "green"
+  },
+  boxTable2: {
+    // height: screenHeight,
+    // backgroundColor: "#ff00ff"
+
+    position: "absolute",
+    width: Dimensions.get("window").width,
+    height: screenHeight,
+    top: topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight,
+    left: 0,
+    backgroundColor: "orange"
   },
   boxFooter: {
     height: boxFooterHeight,
     backgroundColor: "rgb(243,243,243)",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    position: "absolute",
+    top:
+      topSeparatorHeight +
+      boxNavBarHeight +
+      segmentedSelectorHeight +
+      screenHeight,
+    width: Dimensions.get("window").width
   },
   image: {
     width: 30
@@ -227,7 +279,6 @@ const styles = StyleSheet.create({
     width: 170,
     height: 30,
     alignItems: "center",
-    justifyContent: "center",
-    
+    justifyContent: "center"
   }
 });
