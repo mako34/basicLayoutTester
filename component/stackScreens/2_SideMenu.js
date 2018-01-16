@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "rgb(37, 40, 41)",
+    backgroundColor: "red",
     alignItems: "center"
   },
 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   selectorTextStyle: {
-    color: "white"
+    color: "yellow"
   }
 });
 export default ScreenTwo;

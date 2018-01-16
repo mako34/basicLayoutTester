@@ -41,7 +41,6 @@ const App = StackNavigator({
    }
 )
 
-
 //drawer items,
 const routeConfiguration = DrawerNavigator({
     ScreenUno: { screen: App },

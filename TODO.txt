@@ -10,25 +10,33 @@
 
 . modular UI
 
-
-.check box
-4_ participants
-https://github.com/ismayilmalik/react-native-checkbox-heaven
-
-
-. switch
-used on 3_Options
-https://www.npmjs.com/package/react-native-switch
-
-
 . abstract separator
+. abstract colors common
+
+1_index
+    . nav bar tyle
+    . round background selector buttons
+    . logic show view
+
+3_Options
+    . switch
+    https://www.npmjs.com/package/react-native-switch
+
+4_ participants
+    .check box
+    https://github.com/ismayilmalik/react-native-checkbox-heaven
+
 
 5_security
-. Navigation center title
-. style cells, checkbox
+    . Navigation center title
+    . style cells, checkbox
 
 
-Questions
+
+                Questions
+
+. all, 
+    . handling of width, heights ?
 
 4_Participants
 . what to do when ... add new contact

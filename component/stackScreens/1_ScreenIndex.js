@@ -18,8 +18,12 @@ var topSeparatorHeight = 35;
 var boxNavBarHeight = 60;
 var segmentedSelectorHeight = 50;
 var boxFooterHeight = 60;
-var screenHeight = height - (topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight + boxFooterHeight);
-
+var screenHeight =
+  height -
+  (topSeparatorHeight +
+    boxNavBarHeight +
+    segmentedSelectorHeight +
+    boxFooterHeight);
 
 // import styles from "./styles";
 
@@ -45,13 +49,12 @@ class ScreenUno extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-
-      {/* separator */}
+        {/* separator */}
         <View
           style={{
             width: Dimensions.get("window").width,
             height: topSeparatorHeight,
-            backgroundColor: "skyblue",
+            backgroundColor: "white",
             alignItems: "center",
             justifyContent: "center"
           }}
@@ -69,14 +72,16 @@ class ScreenUno extends Component {
 
               {/* RightButton */}
             </NavButton>
-            <NavTitle>{"Secure messaging"}</NavTitle>
+
+            <View style={[styles.boxNav]}>
+              <Text style={styles.navTextTop}> NAKANO - SALE - DALE</Text>
+              <Text style={styles.navTextBottom}>
+                {" "}
+                Taki Nakano, hunter Steele and you
+              </Text>
+            </View>
+            {/* <NavTitle>{"Secure messaging"}</NavTitle> */}
             <NavButton
-              // onPress={() => {
-              //   alert("you clicked me 223");
-              //   console.log("TouchableHighlight pressed...");
-
-              // }}
-
               onPress={() => navigate("ScreenOptions", { screen: "la propia" })}
             >
               <Image
@@ -96,12 +101,15 @@ class ScreenUno extends Component {
               style={{
                 width: Dimensions.get("window").width / 2,
                 height: segmentedSelectorHeight,
-                backgroundColor: "powderblue",
                 alignItems: "center",
                 justifyContent: "center"
               }}
             >
-              <TouchableHighlight onPress={() => this._selectorPressed}>
+              <TouchableHighlight
+                style={[styles.selectorButton]}
+                onPress={() => this._selectorPressed}
+                underlayColor="gray"
+              >
                 <Text>MESSAGES</Text>
               </TouchableHighlight>
             </View>
@@ -109,12 +117,15 @@ class ScreenUno extends Component {
               style={{
                 width: Dimensions.get("window").width / 2,
                 height: segmentedSelectorHeight,
-                backgroundColor: "skyblue",
                 alignItems: "center",
                 justifyContent: "center"
               }}
             >
-              <TouchableHighlight onPress={() => this._selectorPressed}>
+              <TouchableHighlight
+                style={[styles.selectorButton]}
+                onPress={() => this._selectorPressed}
+                underlayColor="gray"
+              >
                 <Text>FILES</Text>
               </TouchableHighlight>
             </View>
@@ -181,9 +192,15 @@ const styles = StyleSheet.create({
     height: boxNavBarHeight,
     backgroundColor: "#2196F3"
   },
+  boxNav: {
+    backgroundColor: "rgb(243,243,243)",
+    width: Dimensions.get("window").width - 100,
+    height: 80,
+    justifyContent: "center"
+  },
   boxSegmentedK: {
     height: segmentedSelectorHeight,
-    backgroundColor: "#8BC34A"
+    backgroundColor: "rgb(243,243,243)",
   },
   boxTable: {
     height: screenHeight,
@@ -191,11 +208,26 @@ const styles = StyleSheet.create({
   },
   boxFooter: {
     height: boxFooterHeight,
-    backgroundColor: "#ff0000",
+    backgroundColor: "rgb(243,243,243)",
     flexDirection: "row",
     alignItems: "center"
   },
   image: {
     width: 30
+  },
+  navTextTop: {
+    color: "gray",
+    fontSize: 10
+  },
+  navTextBottom: {
+    color: "black"
+  },
+  selectorButton: {
+    backgroundColor: "rgb(231,231,231)",
+    width: 170,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    
   }
 });
