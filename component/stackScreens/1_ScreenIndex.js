@@ -9,7 +9,8 @@ import {
   Image,
   Dimensions,
   TextInput,
-  Button
+  Button,
+  FlatList
 } from "react-native";
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
@@ -27,7 +28,7 @@ var screenHeight =
     boxFooterHeight);
 
 // import styles from "./styles";
-
+ 
 class ScreenUno extends Component {
   static navigationOptions = {
     drawerIcon: ({ tintColor }) => (
@@ -47,13 +48,35 @@ class ScreenUno extends Component {
     alert("y y y1");
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      status: true
+      status: true,
+      FlatListItems: [
+        { key: "One" },
+        { key: "Two" },
+        { key: "Three" },
+        { key: "Four" },
+        { key: "Five" },
+        { key: "Six" },
+        { key: "Seven" },
+        { key: "Eight" },
+        { key: "Nine" },
+        { key: "Ten" },
+        { key: "Eleven" },
+        { key: "Twelve" }
+      ]
     };
   }
+
+  renderItem(item){
+    return(
+      <Text>{item.item.key}</Text>
+    )
+  }
+
+ 
 
   ShowHideTextComponentView = () => {
     if (this.state.status == true) {
@@ -67,6 +90,8 @@ class ScreenUno extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+
+
         {/* separator */}
         <View
           style={{
@@ -111,59 +136,99 @@ class ScreenUno extends Component {
           </NavBar>
         </View>
 
-        <View style={[styles.boxSegmentedK]}>
-          {/* button selector */}
-
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View
-              style={{
-                width: Dimensions.get("window").width / 2,
-                height: segmentedSelectorHeight,
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <TouchableHighlight
-                style={[styles.selectorButton]}
-                onPress={this.ShowHideTextComponentView}
-                underlayColor="gray"
-              >
-                <Text>MESSAGES</Text>
-              </TouchableHighlight>
-            </View>
-            <View
-              style={{
-                width: Dimensions.get("window").width / 2,
-                height: segmentedSelectorHeight,
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              <TouchableHighlight
-                style={[styles.selectorButton]}
-                onPress={this.ShowHideTextComponentView}
-                underlayColor="gray"
-              >
-                <Text>FILES</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </View>
-
         {this.state.status ? (
-          <View style={styles.boxTable}>
-<Text>FILES</Text>
+          <View style={[styles.boxSegmentedK]}>
+            {/* button selector */}
+
+            <View style={{ flex: 1, flexDirection: "row" }}>
+              <View
+                style={{
+                  width: Dimensions.get("window").width / 2,
+                  height: segmentedSelectorHeight,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <TouchableHighlight
+                  style={[styles.selectorButtonMessages]}
+                  onPress={this.ShowHideTextComponentView}
+                  underlayColor="gray"
+                >
+                  <Text>MESSAGES</Text>
+                </TouchableHighlight>
+              </View>
+              <View
+                style={{
+                  width: Dimensions.get("window").width / 2,
+                  height: segmentedSelectorHeight,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <TouchableHighlight
+                  style={[styles.selectorButtonFiles]}
+                  onPress={this.ShowHideTextComponentView}
+                  underlayColor="gray"
+                >
+                  <Text>FILES</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
           </View>
         ) : (
-          <View style={styles.boxTable2}>
-<Text>Mess</Text>
+          <View style={[styles.boxSegmentedK]}>
+            {/* button selector */}
+
+            <View style={{ flex: 1, flexDirection: "row" }}>
+              <View
+                style={{
+                  width: Dimensions.get("window").width / 2,
+                  height: segmentedSelectorHeight,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <TouchableHighlight
+                  style={[styles.selectorButtonFiles]}
+                  onPress={this.ShowHideTextComponentView}
+                  underlayColor="gray"
+                >
+                  <Text>MESSAGES</Text>
+                </TouchableHighlight>
+              </View>
+              <View
+                style={{
+                  width: Dimensions.get("window").width / 2,
+                  height: segmentedSelectorHeight,
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <TouchableHighlight
+                  style={[styles.selectorButtonMessages]}
+                  onPress={this.ShowHideTextComponentView}
+                  underlayColor="gray"
+                >
+                  <Text>FILES</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
           </View>
         )}
 
-        {/* <Button
-          title="Hide Text Component"
-          onPress={this.ShowHideTextComponentView}
-        /> */}
+        {this.state.status ? (
+          <View style={styles.boxTable}>
+            <Text>MESSAGES</Text>
+          </View>
+        ) : (
+          <View style={styles.boxTable2}>
+            <FlatList 
+             
+             data = {[{key:'Filename.docx'},{key:'File2.pdf'}, {key:'File33.docx'}, {key:'file43.pdf'}]}
+             renderItem={this.renderItem}
+            />
+          </View>
+        )}
 
         <View style={[styles.boxFooter]}>
           <TextInput
@@ -203,6 +268,8 @@ class ScreenUno extends Component {
             />
           </TouchableOpacity>
         </View>
+
+        
       </View>
     );
   }
@@ -213,7 +280,8 @@ export default ScreenUno;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    
   },
   boxNavBar: {
     height: boxNavBarHeight,
@@ -274,11 +342,23 @@ const styles = StyleSheet.create({
   navTextBottom: {
     color: "black"
   },
-  selectorButton: {
+  selectorButtonMessages: {
     backgroundColor: "rgb(231,231,231)",
     width: 170,
     height: 30,
     alignItems: "center",
     justifyContent: "center"
+  },
+  selectorButtonFiles: {
+    backgroundColor: "rgb(244,244,244)",
+    width: 170,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44
   }
 });

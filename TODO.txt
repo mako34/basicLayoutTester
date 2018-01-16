@@ -14,9 +14,10 @@
 . abstract colors common
 
 1_index
-    . nav bar tyle
+    . selector refactor
+    . nav bar style
     . round background selector buttons
-    . logic show view
+    . logic show view tables
 
 3_Options
     . on tap close button, fix, no black!
