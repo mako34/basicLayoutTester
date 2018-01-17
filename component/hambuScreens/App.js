@@ -19,6 +19,9 @@ import ScreenParticipants from '../stackScreens/4_Participants';
 import ScreenSecurity from '../stackScreens/5_Security';
 import ScreenGoTo from '../stackScreens/6_GoTo';
 import ScreenNewMatter from '../stackScreens/7_NewMatter';
+
+import SideMenu from './SideMenu';
+
 //
 
 // import stackNav from './stacknav';
@@ -47,7 +50,10 @@ const routeConfiguration = DrawerNavigator({
     ScreenDos: { screen: ScreenDos },
     ScreenTres: { screen: ScreenUno }
 
-}
+}, {
+    contentComponent: SideMenu,
+    drawerWidth: 300}
+
 );
 
 
