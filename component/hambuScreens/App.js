@@ -52,7 +52,7 @@ const routeConfiguration = DrawerNavigator({
 
 }, {
     contentComponent: SideMenu,
-    drawerWidth: 300}
+    drawerWidth: 320}
 
 );
 
