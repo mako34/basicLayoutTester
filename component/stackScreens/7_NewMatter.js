@@ -8,7 +8,10 @@ import {
   TextInput
 } from "react-native";
 
+import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
+
 var grayBackground = "rgb(37,40,41)";
+var boxNavBarHeight = 82;
 
 class ScreenNewMatter extends Component {
   render() {
@@ -16,15 +19,28 @@ class ScreenNewMatter extends Component {
     return (
       <View style={styles.container}>
         <View style={[styles.statusBar]} />
-        
-        <TouchableHighlight
-            onPress={() => this.props.navigation.goBack(null)}
-          >
-          <Image
-            style={styles.searchIcon}
-            source={require("../images/closeIcon.png")}
-          />
-          </TouchableHighlight>
+
+        <View style={[styles.boxNavBar]}>
+          <NavBar style={styles}>
+            {/* LeftButton */}
+            <NavButton onPress={() => this.props.navigation.goBack(null)}>
+              <Text>Cancel</Text>
+
+              {/* RightButton */}
+            </NavButton>
+
+            <View style={[styles.boxNav]}>
+              <Text style={styles.navTextTop}> Create New</Text>
+            </View>
+            {/* <NavTitle>{"Secure messaging"}</NavTitle> */}
+            <NavButton
+              onPress={() =>     alert("deal create")
+            }
+            >
+              <Text>Create</Text>
+            </NavButton>
+          </NavBar>
+        </View>
 
         <View style={[styles.lineSeparator]} />
       </View>
@@ -74,6 +90,10 @@ const styles = StyleSheet.create({
   searchIcon: {
     width: 30,
     resizeMode: "contain"
-  }
+  },
+  boxNavBar: {
+    height: boxNavBarHeight,
+    backgroundColor: "#2196F3"
+  },
 });
 export default ScreenNewMatter;

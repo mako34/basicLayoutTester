@@ -351,7 +351,6 @@ const styles = StyleSheet.create({
     height: screenHeight,
     top: topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight,
     left: 0,
-    backgroundColor: "orange"
   },
   boxFooter: {
     height: boxFooterHeight,
