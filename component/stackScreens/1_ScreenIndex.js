@@ -10,7 +10,8 @@ import {
   Dimensions,
   TextInput,
   Button,
-  FlatList
+  FlatList,
+  ScrollView
 } from "react-native";
 
 import NavBar, { NavButton, NavButtonText, NavTitle } from "react-native-nav";
@@ -28,7 +29,7 @@ var screenHeight =
     boxFooterHeight);
 
 // import styles from "./styles";
- 
+
 class ScreenUno extends Component {
   static navigationOptions = {
     drawerIcon: ({ tintColor }) => (
@@ -70,13 +71,9 @@ class ScreenUno extends Component {
     };
   }
 
-  renderItem(item){
-    return(
-      <Text>{item.item.key}</Text>
-    )
+  renderItem(item) {
+    return <Text>{item.item.key}</Text>;
   }
-
- 
 
   ShowHideTextComponentView = () => {
     if (this.state.status == true) {
@@ -90,8 +87,6 @@ class ScreenUno extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-
-
         {/* separator */}
         <View
           style={{
@@ -217,18 +212,57 @@ class ScreenUno extends Component {
         )}
 
         {this.state.status ? (
+
           <View style={styles.boxTable}>
-            <Text>MESSAGES</Text>
+            <View style={[styles.separator]} />
+
+            <Text style={styles.authorText}>Natalia Maric 9:15AM Client</Text>
+
+            <View style={[styles.leftBox]}>
+              <Text>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci velit...
+              </Text>
+            </View>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.authorText}>Adrian Hollan 9:16AM</Text>
+
+            <View style={[styles.rightBox]}>
+              <Text>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci velit...
+              </Text>
+            </View>
+
+            <View style={[styles.separator]} />
+
+            <View style={[styles.separatorRed]} />
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.authorText}>Paul Nilsson 9:18AM</Text>
+
+            <View style={[styles.grayBox]}>
+              <Text>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci velit...
+              </Text>
+            </View>
           </View>
+
+
         ) : (
           <View style={styles.boxTable2}>
-            <FlatList 
-             
-             data = {[{key:'Filename.docx'},{key:'File2.pdf'}, {key:'File33.docx'}, {key:'file43.pdf'}]}
-             renderItem={this.renderItem}
-          
-             
-
+            <FlatList
+              data={[
+                { key: "Filename.docx" },
+                { key: "File2.pdf" },
+                { key: "File33.docx" },
+                { key: "file43.pdf" }
+              ]}
+              renderItem={this.renderItem}
             />
           </View>
         )}
@@ -271,8 +305,6 @@ class ScreenUno extends Component {
             />
           </TouchableOpacity>
         </View>
-
-        
       </View>
     );
   }
@@ -283,8 +315,7 @@ export default ScreenUno;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    
+    flexDirection: "column"
   },
   boxNavBar: {
     height: boxNavBarHeight,
@@ -309,7 +340,7 @@ const styles = StyleSheet.create({
     height: screenHeight,
     top: topSeparatorHeight + boxNavBarHeight + segmentedSelectorHeight,
     left: 0,
-    backgroundColor: "green"
+    backgroundColor: "white"
   },
   boxTable2: {
     // height: screenHeight,
@@ -363,5 +394,37 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     height: 44
+  },
+  separator: {
+    height: 20
+  },
+  separatorRed: {
+    height: 1,
+    backgroundColor: "rgba(255,0,0,0.5)"
+  },
+  leftBox: {
+    backgroundColor: "rgb(232,246,217)",
+    height: 70,
+    width: 230,
+    borderRadius: 10,
+    justifyContent: "center"
+  },
+  rightBox: {
+    backgroundColor: "rgb(74,144,226)",
+    height: 70,
+    width: 230,
+    borderRadius: 10,
+    justifyContent: "center"
+  },
+  grayBox: {
+    backgroundColor: "rgb(241,241,241)",
+    height: 70,
+    width: 230,
+    borderRadius: 10,
+    justifyContent: "center"
+  },
+  authorText: {
+    color: "rgba(0, 0, 0, 0.5)",
+    fontSize: 13
   }
 });
