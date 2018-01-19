@@ -17,9 +17,9 @@ var box_count = 3;
 var box_height = height / box_count;
 
 var segmentedSelectorHeight = 50;
-var drawerWidth = 160;
+var drawerButtonWidth = 160;
 var drawerHeight = 40;
-var selectorButtonsWidth = 120;
+var grayBackground = "rgb(37,40,41)";
 
 class SideMenu extends Component {
   navigateToScreen = route => () => {
@@ -73,58 +73,114 @@ class SideMenu extends Component {
   //       </View>
   //     );
   //   }
-  // }
+  // }UIColor(red:0.29, green:0.56, blue:0.89, alpha:1)
 
   render() {
     return (
       <View style={styles.container}>
         <View style={[styles.boxSelector]} />
 
+        {/* segmentedControl */}
         <View
           style={{
-            flexDirection: "row",
-            backgroundColor: "red"
+            flexDirection: "row"
           }}
         >
           <View
             style={{
-              width: drawerWidth,
+              width: drawerButtonWidth,
               height: segmentedSelectorHeight,
               alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "yellow"
+              justifyContent: "center"
             }}
           >
             <TouchableHighlight
               style={[styles.selectorButtonMessages]}
               onPress={this.ShowHideTextComponentView}
-              underlayColor="gray"
             >
-              <Text>Go to...</Text>
+              <Text style={styles.segmentedTextStyle}>Go to...</Text>
             </TouchableHighlight>
           </View>
 
           <View
             style={{
-              width: drawerWidth,
+              width: drawerButtonWidth,
               height: segmentedSelectorHeight,
               alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "white"
+              justifyContent: "center"
             }}
           >
             <TouchableHighlight
               style={[styles.selectorButtonMessages]}
               onPress={this.ShowHideTextComponentView}
-              underlayColor="gray"
             >
-              <Text>New...</Text>
+              <Text style={styles.segmentedTextStyle}>+ New...</Text>
             </TouchableHighlight>
           </View>
         </View>
 
-        <View style={[styles.box2]} />
-        <View style={[styles.box3]} />
+        <View style={[styles.lineSeparator]} />
+
+        {/* opciones */}
+
+        <View style={[styles.separator]} />
+
+
+        <View
+          style={{
+            flexDirection: "row"
+          }}
+        >
+          <View
+            style={{
+              width: 20
+            }}
+          />
+
+            
+
+          <View style={{}}>
+            <Text style={styles.sectionTitle}>UNREAD</Text>
+            <View style={[styles.separator]} />
+
+            <Text style={styles.cellTitle}>JACKSON - DIVORCE - JACKSON</Text>
+            <Text style={styles.cellSubtitle}>
+              Jack Jackson, Lisa Halliday, ...
+            </Text>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.sectionTitle}>RECENT MATTERS</Text>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.cellTitle}>JONES - ANDERSON</Text>
+            <Text style={styles.cellSubtitle}>
+              Jim Jones, Hunter Steele and you
+            </Text>
+            <Text style={styles.cellSubtitle}>Jim Jones and you</Text>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.cellTitle}>LEE - SALE - ANDERSON</Text>
+            <Text style={styles.cellSubtitle}>
+              Alex Lee, Lisa Halliday and you
+            </Text>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.cellTitle}>COLLINS SURVEYOUR</Text>
+            <Text style={styles.cellSubtitle}>Hunter Nakano</Text>
+
+            <View style={[styles.separator]} />
+
+            <Text style={styles.cellTitle}>NAKANO - SALE - DALE</Text>
+            <Text style={styles.cellSubtitle}>Taki Nakano and you</Text>
+            <Text style={styles.cellSubtitle}>
+              Taki Nakano, Hunter STeele and you
+            </Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -134,11 +190,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "orange"
+    backgroundColor: "rgb(37,40,41)"
   },
   boxSelector: {
     height: 40,
-    backgroundColor: "blue"
+    backgroundColor: "white"
   },
   box1: {
     backgroundColor: "#2196F3",
@@ -153,18 +209,40 @@ const styles = StyleSheet.create({
     height: 40
   },
   selectorButtonMessages: {
-    backgroundColor: "rgb(231,231,231)",
-    width: selectorButtonsWidth,
+    backgroundColor: grayBackground,
+    width: drawerButtonWidth,
     height: 30,
     alignItems: "center",
     justifyContent: "center"
   },
   selectorButtonFiles: {
     backgroundColor: "rgb(244,244,244)",
-    width: selectorButtonsWidth,
+    width: drawerButtonWidth,
     height: 30,
     alignItems: "center",
     justifyContent: "center"
+  },
+  segmentedTextStyle: {
+    color: "white"
+  },
+  sectionTitle: {
+    color: "rgb(73.95, 66.3, 226.95)",
+    fontSize: 13
+  },
+  cellTitle: {
+    color: "rgba(255, 255, 255,0.59)",
+    fontSize: 11
+  },
+  cellSubtitle: {
+    color: "rgba(255, 255, 255,1)",
+    fontSize: 17
+  },
+  separator: {
+    height: 20
+  },
+  lineSeparator: {
+    height: 0.5,
+    backgroundColor: "white"
   }
 });
 
