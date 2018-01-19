@@ -1,43 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
   Text,
-  TouchableHighlight
-} from 'react-native';
+  TouchableHighlight,
+  Image,
+  TextInput
+} from "react-native";
 
-class ScreenTwo extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      //titulo nav bar, mira como usan los params
-      title: `ss9  tkt${navigation.state.params.screen}`,
-    }
-  };
+var grayBackground = "rgb(37,40,41)";
+
+class ScreenNewMatter extends Component {
   render() {
     const { state, navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Text style={styles.titleText}>{state.params.screen}</Text>
+        <View style={[styles.statusBar]} />
+        
+        <TouchableHighlight
+            onPress={() => this.props.navigation.goBack(null)}
+          >
+          <Image
+            style={styles.searchIcon}
+            source={require("../images/closeIcon.png")}
+          />
+          </TouchableHighlight>
 
- 
- 
-
+        <View style={[styles.lineSeparator]} />
       </View>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
   titleText: {
     fontSize: 22
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginLeft: 20,
     marginRight: 20,
     marginTop: 20
@@ -47,12 +50,30 @@ const styles = StyleSheet.create({
     height: 50,
     flex: 2,
     margin: 10,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   buttonText: {
-    color: 'white',
-    alignSelf: 'center',
+    color: "white",
+    alignSelf: "center",
     fontSize: 18
+  },
+  lineSeparator: {
+    height: 1,
+    backgroundColor: grayBackground
+  },
+  statusBar: {
+    height: 40
+  },
+  searchBar: {
+    height: 60,
+    backgroundColor: "rgb(243,243,243)",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  searchIcon: {
+    width: 30,
+    resizeMode: "contain"
   }
 });
-export default ScreenTwo;
+export default ScreenNewMatter;

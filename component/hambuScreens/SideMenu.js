@@ -22,12 +22,15 @@ var drawerHeight = 40;
 var grayBackground = "rgb(37,40,41)";
 
 class SideMenu extends Component {
-  navigateToScreen = route => () => {
-    const navigateAction = NavigationActions.navigate({
-      routeName: route
-    });
-    this.props.navigation.dispatch(navigateAction);
-  };
+ 
+
+    navigateToScreen = (route) => () => {
+        const navigateAction = NavigationActions.navigate({
+          routeName: route
+        });
+        this.props.navigation.dispatch(navigateAction);
+      }
+
 
   //   render() {
   //     return (
@@ -76,6 +79,9 @@ class SideMenu extends Component {
   // }UIColor(red:0.29, green:0.56, blue:0.89, alpha:1)
 
   render() {
+    const { navigate } = this.props.navigation;
+
+
     return (
       <View style={styles.container}>
         <View style={[styles.boxSelector]} />
@@ -96,7 +102,7 @@ class SideMenu extends Component {
           >
             <TouchableHighlight
               style={[styles.selectorButtonMessages]}
-              onPress={this.ShowHideTextComponentView}
+              onPress={this.navigateToScreen('ScreenGoTo')}
             >
               <Text style={styles.segmentedTextStyle}>Go to...</Text>
             </TouchableHighlight>
@@ -112,7 +118,7 @@ class SideMenu extends Component {
           >
             <TouchableHighlight
               style={[styles.selectorButtonMessages]}
-              onPress={this.ShowHideTextComponentView}
+              onPress={this.navigateToScreen('ScreenNewMatter')}
             >
               <Text style={styles.segmentedTextStyle}>+ New...</Text>
             </TouchableHighlight>
@@ -125,7 +131,6 @@ class SideMenu extends Component {
 
         <View style={[styles.separator]} />
 
-
         <View
           style={{
             flexDirection: "row"
@@ -137,49 +142,49 @@ class SideMenu extends Component {
             }}
           />
 
-            
+          <ScrollView>
+            <View style={{}}>
+              <Text style={styles.sectionTitle}>UNREAD</Text>
+              <View style={[styles.separator]} />
 
-          <View style={{}}>
-            <Text style={styles.sectionTitle}>UNREAD</Text>
-            <View style={[styles.separator]} />
+              <Text style={styles.cellTitle}>JACKSON - DIVORCE - JACKSON</Text>
+              <Text style={styles.cellSubtitle}>
+                Jack Jackson, Lisa Halliday, ...
+              </Text>
 
-            <Text style={styles.cellTitle}>JACKSON - DIVORCE - JACKSON</Text>
-            <Text style={styles.cellSubtitle}>
-              Jack Jackson, Lisa Halliday, ...
-            </Text>
+              <View style={[styles.separator]} />
 
-            <View style={[styles.separator]} />
+              <Text style={styles.sectionTitle}>RECENT MATTERS</Text>
 
-            <Text style={styles.sectionTitle}>RECENT MATTERS</Text>
+              <View style={[styles.separator]} />
 
-            <View style={[styles.separator]} />
+              <Text style={styles.cellTitle}>JONES - ANDERSON</Text>
+              <Text style={styles.cellSubtitle}>
+                Jim Jones, Hunter Steele and you
+              </Text>
+              <Text style={styles.cellSubtitle}>Jim Jones and you</Text>
 
-            <Text style={styles.cellTitle}>JONES - ANDERSON</Text>
-            <Text style={styles.cellSubtitle}>
-              Jim Jones, Hunter Steele and you
-            </Text>
-            <Text style={styles.cellSubtitle}>Jim Jones and you</Text>
+              <View style={[styles.separator]} />
 
-            <View style={[styles.separator]} />
+              <Text style={styles.cellTitle}>LEE - SALE - ANDERSON</Text>
+              <Text style={styles.cellSubtitle}>
+                Alex Lee, Lisa Halliday and you
+              </Text>
 
-            <Text style={styles.cellTitle}>LEE - SALE - ANDERSON</Text>
-            <Text style={styles.cellSubtitle}>
-              Alex Lee, Lisa Halliday and you
-            </Text>
+              <View style={[styles.separator]} />
 
-            <View style={[styles.separator]} />
+              <Text style={styles.cellTitle}>COLLINS SURVEYOUR</Text>
+              <Text style={styles.cellSubtitle}>Hunter Nakano</Text>
 
-            <Text style={styles.cellTitle}>COLLINS SURVEYOUR</Text>
-            <Text style={styles.cellSubtitle}>Hunter Nakano</Text>
+              <View style={[styles.separator]} />
 
-            <View style={[styles.separator]} />
-
-            <Text style={styles.cellTitle}>NAKANO - SALE - DALE</Text>
-            <Text style={styles.cellSubtitle}>Taki Nakano and you</Text>
-            <Text style={styles.cellSubtitle}>
-              Taki Nakano, Hunter STeele and you
-            </Text>
-          </View>
+              <Text style={styles.cellTitle}>NAKANO - SALE - DALE</Text>
+              <Text style={styles.cellSubtitle}>Taki Nakano and you</Text>
+              <Text style={styles.cellSubtitle}>
+                Taki Nakano, Hunter STeele and you
+              </Text>
+            </View>
+          </ScrollView>
         </View>
       </View>
     );

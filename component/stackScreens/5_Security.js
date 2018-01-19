@@ -18,12 +18,7 @@ import CheckBox from "react-native-checkbox-heaven";
 var topSeparatorHeight = 35;
 
 class ScreenTwo extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      //titulo nav bar, mira como usan los params
-      title: `Secure  tkt${navigation.state.params.screen}`
-    };
-  };
+ 
 
   state = {
     checked: false
