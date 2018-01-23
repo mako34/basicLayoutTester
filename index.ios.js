@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry
@@ -11,7 +5,7 @@ import {
 
 // import App from './component/tabBarScreens/App';
 // import App from './component/stackScreens/App';
-import App from './component/hambuScreens/App';
+import App from './component/screens/App';
 
 
 AppRegistry.registerComponent('reactNav', () => App);
