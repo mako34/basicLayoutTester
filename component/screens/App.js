@@ -5,10 +5,6 @@ import ScreenUno from './ScreenUno';
 import ScreenDos from './ScreenDos';
 
 
-import stackScreenNavigator from '../stackScreens/App';
-
-//
-
 import ScreenIndex from './1_ScreenIndex';
 import ScreenMenu from './2_SideMenu';
 import ScreenOptions from './3_Options';
