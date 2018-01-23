@@ -4,25 +4,17 @@ import { DrawerNavigator, StackNavigator} from 'react-navigation';
 import ScreenUno from './ScreenUno';
 import ScreenDos from './ScreenDos';
 
-
-import ScreenIndex from './1_ScreenIndex';
-import ScreenMenu from './2_SideMenu';
-import ScreenOptions from './3_Options';
-import ScreenParticipants from './4_Participants';
-import ScreenSecurity from './5_Security';
-import ScreenGoTo from './6_GoTo';
-import ScreenNewMatter from './7_NewMatter';
+import ScreenIndex from './ScreenIndex';
+import ScreenOptions from './Options';
+import ScreenParticipants from './Participants';
+import ScreenSecurity from './Security';
+import ScreenGoTo from './GoTo';
+import ScreenNewMatter from './NewMatter';
 
 import SideMenu from './SideMenu';
 
-//
-
-// import stackNav from './stacknav';
-
-
 const App = StackNavigator({
     ScreenIndex: { screen: ScreenIndex},
-    ScreenMenu: { screen: ScreenMenu},
     ScreenOptions: {screen: ScreenOptions},
     ScreenParticipants: {screen: ScreenParticipants},
     ScreenSecurity: {screen: ScreenSecurity},
@@ -49,14 +41,5 @@ const routeConfiguration = DrawerNavigator({
 
 );
 
-
-//
-
-
-
-
-
-
- 
 export default routeConfiguration;
 

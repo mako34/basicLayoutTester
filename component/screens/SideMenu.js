@@ -32,52 +32,6 @@ class SideMenu extends Component {
       }
 
 
-  //   render() {
-  //     return (
-  //       <View style={styles.container}>
-
-  //         <View
-  //           style={{
-  //             borderBottomColor: "white",
-  //             borderBottomWidth: 1
-  //           }}
-  //         />
-
-  //         <ScrollView>
-  //           <View>
-  //             <Text style={styles.sectionHeadingStyle}>Section 1</Text>
-  //             <View style={styles.navSectionStyle}>
-  //               <Text
-  //                 style={styles.navItemStyle}
-  //                 onPress={this.navigateToScreen("Page1")}
-  //               >
-  //                 Page unu
-  //               </Text>
-  //             </View>
-  //           </View>
-  //           <View>
-  //             <Text style={styles.sectionHeadingStyle}>Section 2</Text>
-  //             <View style={styles.navSectionStyle}>
-  //               <Text
-  //                 style={styles.navItemStyle}
-  //                 onPress={this.navigateToScreen("Page2")}
-  //               >
-  //                 Page2
-  //               </Text>
-  //               <Text
-  //                 style={styles.navItemStyle}
-  //                 onPress={this.navigateToScreen("Page3")}
-  //               >
-  //                 Page3
-  //               </Text>
-  //             </View>
-  //           </View>
-  //         </ScrollView>
-  //       </View>
-  //     );
-  //   }
-  // }UIColor(red:0.29, green:0.56, blue:0.89, alpha:1)
-
   render() {
     const { navigate } = this.props.navigation;
 
